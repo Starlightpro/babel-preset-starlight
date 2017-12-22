@@ -7,11 +7,37 @@
 
 `yarn add --dev @starlightpro/babel-preset-starlight`
 
+Babel preset Starlight uses Babel 7.0 ([more detail](https://babeljs.io/blog/2017/09/12/planning-for-7.0))
+
+> ⚠️
+> * babel-loader 8.0 +
+> * @babel/core
+> * [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin)
+>   v1.0.0 or [babel-minify](https://github.com/babel/minify) (options)
+
 ## Usage
 
 ```json
 {
   "presets": ["@starlightpro/babel-preset-starlight"]
+}
+```
+
+#### Customized
+
+```json
+{
+  "presets": [
+    ["@starlightpro/babel-preset-starlight", {
+      "node":true,
+      "nodeTarget": "current",
+      "env": {
+        "debug": false
+      },
+      "flow": "strip",
+      "srcDir": "./src"
+    }]
+  ]
 }
 ```
 
@@ -70,21 +96,4 @@ Default browser targets:
   'last 4 Firefox major versions',
   'last 3 Safari versions',
 ];
-```
-
-
-```json
-{
-  "presets": [
-    ["@starlightpro/babel-preset-starlight", {
-      "node":true,
-      "nodeTarget": "current",
-      "env": {
-        "debug": false
-      },
-      "flow": "strip",
-      "srcDir": "./src"
-    }]
-  ]
-}
 ```
