@@ -70,11 +70,9 @@ module.exports = function(context, options) {
       },
     ],
   ];
-  const flowtypes = options.flow == 'strip' ? require.resolve('@babel/plugin-transform-flow-strip-types') : require.resolve('@babel/plugin-transform-flow-comments');
   const plugins = [
     require.resolve('@babel/plugin-syntax-dynamic-import'),
-    flowtypes,
-    require.resolve('@babel/plugin-proposal-decorators'),
+    require.resolve('@babel/plugin-transform-flow-strip-types'),
     [
       require.resolve('@babel/plugin-proposal-class-properties'),
       { loose: true }
@@ -103,7 +101,7 @@ module.exports = function(context, options) {
 if (env === 'production') {
   plugins.push([
     require.resolve('@babel/plugin-transform-react-constant-elements'),
-    require.resolve(require.resolve('@babel/plugin-transform-react-inline-elements'))
+    require.resolve('@babel/plugin-transform-react-inline-elements')
   ])
 }
   return {

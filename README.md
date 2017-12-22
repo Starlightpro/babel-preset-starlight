@@ -34,7 +34,6 @@ Babel preset Starlight uses Babel 7.0 ([more detail](https://babeljs.io/blog/201
       "env": {
         "debug": false
       },
-      "flow": "strip",
       "srcDir": "./src"
     }]
   ]
@@ -58,12 +57,6 @@ Default to `esm` unless BABEL_ENV is set to test then it defaults to `cjs`
 All options from `@babel/preset-env` are available for configuration by adding `env: {}` to the options object.
 
 See [`@babel/preset-env`](http://babeljs.io/docs/plugins/#plugin-preset-options) documentation.
-
-### options.flow
-`string | "strip"`, defaults to false -- types are converted into comments.     
-      
-Flowtype is supported. To customize whether type definitions are stripped or transformed into comments pass `flow: 'strip'` as an option.
-
 
 ### options.srcDir
 `string`, defaults to not enabled.    
